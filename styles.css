@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Warm Editorial Studio — Design System & Custom Styles
+   Based on DESIGN.md & Planning Document (mywebsite_pmd_20261024.md)
+   ========================================================================== */
+
+:root {
+  /* Palette Architecture (DESIGN.md) */
+  --canvas-base: #FCFBF7;
+  --surface: #F9F9F7;
+  --surface-dim: #DADAD8;
+  --surface-bright: #FCFBF7;
+  --surface-container-lowest: #FFFFFF;
+  --surface-container-low: #F4F4F2;
+  --surface-container: #EEEEEC;
+  --surface-container-high: #E8E8E6;
+  --surface-container-highest: #E2E3E1;
+
+  /* Text & Ink Colors */
+  --on-surface: #242625;
+  --on-surface-strong: #1A1C1B;
+  --on-surface-variant: #3F4849;
+  --text-muted: #707979;
+  --placeholder: #7A7D7B;
+
+  /* Accent Colors */
+  --primary: #1B5B5F;
+  --primary-accent: #387478; /* Deep Sage Patina */
+  --primary-hover: #2E6165;
+  --primary-fixed: #B1EDF1;
+  --primary-badge-bg: #EEF4F4;
+  --primary-badge-text: #2B5A5D;
+
+  --secondary: #904C33;
+  --secondary-accent: #C97A5E; /* Terracotta Blush */
+  --secondary-fixed: #FFDBCF;
+  --secondary-badge-bg: #FAF0EC;
+  --secondary-badge-text: #9B563F;
+
+  --tertiary: #395767;
+  --tertiary-accent: #5E7C8D; /* Slate Cerulean */
+  --tertiary-fixed: #C7E7FA;
+  --tertiary-badge-bg: #EEF3F6;
+  --tertiary-badge-text: #445E6D;
+
+  /* Borders & Dividers */
+  --hairline-border: #E8E5DD;
+  --outline-variant: #BFC8C9;
+  --callout-wash: #F7F6F0;
+
+  /* Warm Umber Shadows (DESIGN.md Elevation & Depth) */
+  --shadow-resting: 0 4px 20px -2px rgba(56, 48, 38, 0.05), 0 1px 3px 0 rgba(56, 48, 38, 0.03);
+  --shadow-hover: 0 8px 24px -4px rgba(56, 48, 38, 0.08), 0 2px 6px 0 rgba(56, 48, 38, 0.04);
+  --shadow-header: 0 1px 8px rgba(56, 48, 38, 0.04);
+}
+
+/* Base Reset & Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  background-color: var(--canvas-base);
+  color: var(--on-surface);
+  font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--canvas-base);
+  color: var(--on-surface);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Editorial Card & Surface Styling */
+.editorial-card {
+  background-color: var(--surface-container-lowest);
+  border: 1px solid var(--hairline-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-resting);
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 200ms ease;
+}
+
+.editorial-card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: #D8D4C8;
+}
+
+.editorial-panel {
+  background-color: var(--surface-container-lowest);
+  border: 1px solid var(--hairline-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-resting);
+}
+
+.editorial-callout {
+  background-color: var(--callout-wash);
+  border-left: 2px solid var(--primary-accent);
+  border-radius: 0 4px 4px 0;
+}
+
+.editorial-divider {
+  border-top: 1px solid var(--hairline-border);
+}
+
+/* Strict Profile Photo Restrictions (Planning Doc Section 6 & 7)
+   - Size strictly 80x80px ~ 120x120px (set to 112x112px)
+   - Click & zoom completely disabled */
+.profile-placeholder-frame {
+  width: 112px;
+  height: 112px;
+  min-width: 112px;
+  min-height: 112px;
+  max-width: 120px;
+  max-height: 120px;
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none;
+  cursor: default !important;
+  border: 1px solid var(--hairline-border);
+}
+
+.profile-placeholder-frame * {
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+/* Buttons (DESIGN.md) */
+.btn-primary-sage {
+  background-color: var(--primary-accent);
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: background-color 200ms ease, transform 150ms ease, box-shadow 200ms ease;
+}
+
+.btn-primary-sage:hover {
+  background-color: var(--primary);
+}
+
+.btn-secondary-ghost {
+  background-color: var(--surface-container-lowest);
+  color: var(--on-surface);
+  border: 1px solid var(--hairline-border);
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.btn-secondary-ghost:hover {
+  background-color: #F0F4F4;
+  border-color: var(--primary-accent);
+}
+
+/* Badges & Chips (DESIGN.md) */
+.badge-sage {
+  background-color: var(--primary-badge-bg);
+  color: var(--primary-badge-text);
+  border-radius: 4px;
+}
+
+.badge-terracotta {
+  background-color: var(--secondary-badge-bg);
+  color: var(--secondary-badge-text);
+  border-radius: 4px;
+}
+
+.badge-cerulean {
+  background-color: var(--tertiary-badge-bg);
+  color: var(--tertiary-badge-text);
+  border-radius: 4px;
+}
+
+/* Form Controls (DESIGN.md) */
+.editorial-input {
+  background-color: var(--surface-container-lowest);
+  border: 1px solid var(--hairline-border);
+  border-radius: 4px;
+  color: var(--on-surface);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.editorial-input::placeholder {
+  color: var(--placeholder);
+}
+
+.editorial-input:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 2px rgba(56, 116, 120, 0.15);
+}
+
+/* Portfolio Thumbnail Fallback Styling */
+.thumb-placeholder {
+  background: linear-gradient(135deg, #EAE9E4 0%, #DFDDD6 100%);
+  position: relative;
+}
+
+/* Filter Animation */
+.archive-card {
+  transition: opacity 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms ease;
+}
+
+.archive-card.is-hidden {
+  display: none !important;
+}
+
+/* Active Nav Link */
+.nav-link.active {
+  color: var(--primary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-accent);
+}
